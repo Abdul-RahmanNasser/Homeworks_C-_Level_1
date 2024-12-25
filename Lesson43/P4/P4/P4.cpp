@@ -5,7 +5,7 @@ using namespace std;
 enum Days { Sunday = 1, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
 void display_menu() {
 	cout << "*************************************************************************************" << endl;
-	cout << "This program will display the day of the week based on the number you enter." << endl;
+	cout << "Please, enter the number of the day you want from this menu: " << endl;
 	cout << "1. Sunday" << endl;
 	cout << "2. Monday" << endl;
 	cout << "3. Tuesday" << endl;
@@ -50,6 +50,7 @@ string check_day(Days day) {
 int main()
 {
 	int num;
+	display_menu();
 	read_num(num);
 	Days day = static_cast<Days>(num);
 	cout << check_day(day) << endl;
