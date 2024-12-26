@@ -15,34 +15,28 @@ void display_menu() {
 	cout << "7. Saturday" << endl;
 	cout << "*************************************************************************************" << endl;
 }
-void read_num(int& num) {
+Days read_num(int& num) {
 	cout << "Please, enter the number: ";
 	cin >> num;
+	return static_cast<Days>(num);
 }
 string check_day(Days day) {
 	switch (day)
 	{
 	case Days::Sunday:
 		return "Sunday";
-		break;
 	case Days::Monday:
 		return "Monday";
-		break;
 	case Days::Tuesday:
 		return "Tuesday";
-		break;
 	case Days::Wednesday:
 		return "Wednesday";
-		break;
 	case Days::Thursday:
 		return "Thursday";
-		break;
 	case Days::Friday:
 		return "Friday";
-		break;
 	case Days::Saturday:
 		return "Saturday";
-		break;
 	default:
 		return "Invalid input";
 	}
@@ -51,8 +45,6 @@ int main()
 {
 	int num;
 	display_menu();
-	read_num(num);
-	Days day = static_cast<Days>(num);
-	cout << check_day(day) << endl;
+	cout << check_day(read_num(num)) << "." << endl;
 	return 0;
 }

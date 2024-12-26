@@ -18,36 +18,40 @@ void read_nums(int& num1, int& num2) {
 	cout << "Please, enter your second number: ";
 	cin >> num2;
 }
-void choose(int& operation) {
+enoperation choose() {
+	int operation;
 	cout << "Please, enter your operation: ";
 	cin >> operation;
+	return static_cast<enoperation>(operation);
 }
-void print_result(int num1, int num2, enoperation operation) {
+string print_result(int num1, int num2, enoperation operation) {
+	int result;
 	switch (operation) {
 	case enoperation::ADDITION:
-		cout << "The result is: " << num1 + num2 << endl;
-		break;
+		result = num1 + num2;
+		return "The result is: " + to_string(result);
 	case enoperation::SUBTRACTION:
-		cout << "The result is: " << num1 - num2 << endl;
-		break;
+		result = num1 - num2;
+		return "The result is: " + to_string(result);
 	case enoperation::MULTIPLICATION:
-		cout << "The result is: " << num1 * num2 << endl;
-		break;
+		result = num1 * num2;
+		return "The result is: " + to_string(result);
 	case enoperation::DIVISION:
-		cout << "The result is: " << num1 / num2 << endl;
-		break;
+		if (num2 == 0)
+			return "Division by zero is not allowed!";
+		else {
+			result = num1 / num2;
+			return "The result is: " + to_string(result);
+		}
 	default:
-		cout << "Invalid operation!" << endl;
+		return "Invalid operation!";
 	}
 }
 int main()
 {
-	int num1, num2, choice;
-	enoperation operation;
+	int num1, num2;
 	display_menu();
 	read_nums(num1, num2);
-	choose(choice);
-	operation = static_cast<enoperation>(choice);
-	print_result(num1, num2, operation);
+	cout<< print_result(num1, num2, choose()) << endl;
 	return 0;
 }
