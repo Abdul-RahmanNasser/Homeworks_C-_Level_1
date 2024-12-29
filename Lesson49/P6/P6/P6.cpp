@@ -6,17 +6,19 @@ int read_number() {
     cin >> num;
     return num;
 }
-void print_rows(int& num) {
-    for (int i = 1; i <= num; i++)
+void print_rows(int& num, int n) {
+    for (int i = n; i <= num; i++)
         cout << i << " ";
 }
 void print_colomns(int num) {
-    if (num >= 1)
+    if (num >= 1) {
+        int n = 1;
         for (int j = num; j >= 1; j--) {
-            print_rows(num);
+            print_rows(num, n);
             cout << endl;
-            num--;
+            n++;
         }
+    }
     else
         cout << "Invalid Input!";
 }
